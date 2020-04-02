@@ -1,9 +1,9 @@
-class MealPlansController < ApplicationController
+class MealPlansController < ProtectedController
   before_action :set_meal_plan, only: %i[show update destroy]
 
   # GET /meal_plans
   def index
-    @meal_plans = MealPlan.all
+    @meal_plans = current_user.meal_plans.all
 
     render json: @meal_plans
   end
@@ -15,7 +15,7 @@ class MealPlansController < ApplicationController
 
   # POST /meal_plans
   def create
-    @meal_plan = MealPlan.new(meal_plan_params)
+    @meal_plan = current_user.meal_plans.build(meal_plan_params)
 
     if @meal_plan.save
       render json: @meal_plan, status: :created, location: @meal_plan
@@ -42,7 +42,7 @@ class MealPlansController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meal_plan
-    @meal_plan = MealPlan.find(params[:id])
+    @meal_plan = current_user.meal_plans.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.

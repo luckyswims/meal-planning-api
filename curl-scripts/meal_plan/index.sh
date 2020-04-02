@@ -1,8 +1,8 @@
 #!/bin/bash
 
-curl "http://localhost:4741/meal_plans${ID}" \
+curl "http://localhost:4741/meal_plans" \
   --include \
-  --request DELETE \
+  --request GET \
   --header "Authorization: Token token=${TOKEN}"
 
 echo

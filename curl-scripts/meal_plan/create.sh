@@ -1,5 +1,11 @@
-curl --include --request POST "http://localhost:4741/meal_plans" \
+#!/bin/bash
+
+curl "http://localhost:4741/meal_plans" \
+  --include \
+  --request POST \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
+
   --data '{
       "meal_plan": {
         "name": "'"${NAME}"'",
@@ -13,3 +19,5 @@ curl --include --request POST "http://localhost:4741/meal_plans" \
         "user_id": "'"${USERID}"'"
       }
   }'
+
+  echo

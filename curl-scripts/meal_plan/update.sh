@@ -1,5 +1,6 @@
 curl --include --request PATCH "http://localhost:4741/meal_plans/${ID}" \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=${TOKEN}" \
   --data '{
       "meal_plan": {
         "name": "'"${NAME}"'",
