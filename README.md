@@ -12,12 +12,12 @@ the users could Create, Update, Read, and Delete. For the project I chose to
 create a meal planning application to help users plan out their meals for the
 week. The links to the deployed API and Client are below:
 
-[Deployed API]
+[Deployed API]  
 [Deployed Client]
 
 ## Development
 ### Version 1:
-The first version of the client was straightforward. I had been provided with a
+The first version of the API was straightforward. I had been provided with a
 template for the project which implemented a Users table, and User authentication.
 I needed to create an additional resource that would belong to a user. My idea
 for an application was a meal planning app, where users could build meal plans
@@ -31,7 +31,7 @@ contain a list of Ingredients. However, I knew I needed to break that down and
 start with the initial version. I decided that a Meal Plan would have a name and
 contain 7 meals, each stored as a string. I then used this idea to build my ERD.
 
-![Version 1 ERD][ERD]
+![Version 1 ERD][ERD1]
 
 Once I had my design I went to work implementing it in Rails. I scaffolded the
 Meal Plan resource, reviewed the result, and made any necessary updates. I then
@@ -59,12 +59,12 @@ without any further issue.
 
 -Add meal resource that will be referenced by the meal plan resource.  
 -Add an ingredient quantity resource that will have a many to many relationship
-with the meal resource.  
+with the meal resource  
 -Update the API to handle the search function (currently search is handled 
-client side)
+client side)  
 -Build function to aggregate all of the ingredients used in meals for a given
-meal plan in order to build a shopping list for the user.
+meal plan in order to build a shopping list for the user  
 
 [Deployed API]: https://luckys-meal-planning-api.herokuapp.com
 [Deployed Client]: https://luckyswims.github.io/meal-planning-client/
-[ERD]: https://github.com/luckyswims/meal-planning-api/blob/master/images/Meal%20Planning%20MVP%20ERD.jpeg
+[ERD1]: https://github.com/luckyswims/meal-planning-api/blob/master/images/Meal%20Planning%20MVP%20ERD.jpeg
