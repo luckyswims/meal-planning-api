@@ -1,9 +1,9 @@
 # Meal Planning API
 
 ## Technologies Used
--Ruby  
--Ruby on Rails  
--Curl  
+- Ruby  
+- Ruby on Rails  
+- Curl  
 
 ## About
 This API was develped for a project during my Software Engineering Immersive at
@@ -57,12 +57,12 @@ without any further issue.
 
 ## To Do list
 
--Add meal resource that will be referenced by the meal plan resource.  
--Add an ingredient quantity resource that will have a many to many relationship
+- Add meal resource that will be referenced by the meal plan resource.  
+- Add an ingredient quantity resource that will have a many to many relationship
 with the meal resource  
--Update the API to handle the search function (currently search is handled 
+- Update the API to handle the search function (currently search is handled 
 client side)  
--Build function to aggregate all of the ingredients used in meals for a given
+- Build function to aggregate all of the ingredients used in meals for a given
 meal plan in order to build a shopping list for the user  
 
 [Deployed API]: https://luckys-meal-planning-api.herokuapp.com
