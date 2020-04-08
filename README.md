@@ -10,10 +10,11 @@ This API was develped for a project during my Software Engineering Immersive at
 General Assembly. The goal was to create a full stack application with resources
 the users could Create, Update, Read, and Delete. For the project I chose to
 create a meal planning application to help users plan out their meals for the
-week. The links to the deployed API and Client are below:
+week. The links to the deployed API, deployed Client, and Client repo are below:
 
 [Deployed API]  
-[Deployed Client]
+[Deployed Client]  
+[Client Repo]
 
 ## Development
 ### Version 1:
@@ -67,4 +68,5 @@ meal plan in order to build a shopping list for the user
 
 [Deployed API]: https://luckys-meal-planning-api.herokuapp.com
 [Deployed Client]: https://luckyswims.github.io/meal-planning-client/
+[Client Repo]: https://github.com/luckyswims/meal-planning-client
 [ERD1]: https://github.com/luckyswims/meal-planning-api/blob/master/images/Meal%20Planning%20MVP%20ERD.jpeg
