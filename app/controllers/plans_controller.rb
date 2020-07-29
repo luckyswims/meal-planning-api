@@ -1,4 +1,4 @@
-class MealPlansController < ProtectedController
+class PlansController < ProtectedController
   before_action :set_plan, only: %i[show update destroy]
 
   # GET /plans
@@ -47,7 +47,6 @@ class MealPlansController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def plan_params
-    params.require(:plan).permit(:name, :meal1, :meal2, :meal3,
-                                 :meal4, :meal5, :meal6, :meal7, :user_id)
+    params.require(:plan).permit(:name, :user_id, meals: [])
   end
 end
