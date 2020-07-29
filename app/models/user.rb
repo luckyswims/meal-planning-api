@@ -3,6 +3,6 @@
 class User < ApplicationRecord
   include Authentication
   has_many :examples
-  has_many :meal_plans
+  has_many :plans
   has_many :meals
 end

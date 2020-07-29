@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_160215) do
+ActiveRecord::Schema.define(version: 2020_07_29_171811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,17 @@ ActiveRecord::Schema.define(version: 2020_07_28_160215) do
     t.index ["user_id"], name: "index_examples_on_user_id"
   end
 
-  create_table "meal_plans", force: :cascade do |t|
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.decimal "time"
+    t.string "ingredient_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
     t.string "name"
     t.string "meal1"
     t.string "meal2"
@@ -35,17 +45,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_160215) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_meal_plans_on_user_id"
-  end
-
-  create_table "meals", force: :cascade do |t|
-    t.string "name"
-    t.decimal "time"
-    t.string "ingredient_list"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_meals_on_user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,6 +59,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_160215) do
   end
 
   add_foreign_key "examples", "users"
-  add_foreign_key "meal_plans", "users"
   add_foreign_key "meals", "users"
+  add_foreign_key "plans", "users"
 end

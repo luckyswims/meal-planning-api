@@ -1,13 +1,13 @@
 #!/bin/bash
 
-curl "http://localhost:4741/meal_plans" \
+curl "http://localhost:4741/plans" \
   --include \
   --request POST \
   --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
 
   --data '{
-      "meal_plan": {
+      "plan": {
         "name": "'"${NAME}"'",
         "meal1": "'"${MEAL}"'",
         "meal2": "'"${MEAL}"'",

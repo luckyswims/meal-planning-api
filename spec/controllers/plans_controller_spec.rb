@@ -23,7 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe MealPlansController, type: :controller do
+RSpec.describe PlansController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # MealPlan. As you add validations to MealPlan, be sure to
@@ -43,7 +43,7 @@ RSpec.describe MealPlansController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      meal_plan = MealPlan.create! valid_attributes
+      plan = MealPlan.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -51,8 +51,8 @@ RSpec.describe MealPlansController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      meal_plan = MealPlan.create! valid_attributes
-      get :show, params: {id: meal_plan.to_param}, session: valid_session
+      plan = MealPlan.create! valid_attributes
+      get :show, params: {id: plan.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
@@ -61,23 +61,23 @@ RSpec.describe MealPlansController, type: :controller do
     context "with valid params" do
       it "creates a new MealPlan" do
         expect {
-          post :create, params: {meal_plan: valid_attributes}, session: valid_session
+          post :create, params: {plan: valid_attributes}, session: valid_session
         }.to change(MealPlan, :count).by(1)
       end
 
-      it "renders a JSON response with the new meal_plan" do
+      it "renders a JSON response with the new plan" do
 
-        post :create, params: {meal_plan: valid_attributes}, session: valid_session
+        post :create, params: {plan: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(meal_plan_url(MealPlan.last))
+        expect(response.location).to eq(plan_url(MealPlan.last))
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new meal_plan" do
+      it "renders a JSON response with errors for the new plan" do
 
-        post :create, params: {meal_plan: invalid_attributes}, session: valid_session
+        post :create, params: {plan: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -90,27 +90,27 @@ RSpec.describe MealPlansController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested meal_plan" do
-        meal_plan = MealPlan.create! valid_attributes
-        put :update, params: {id: meal_plan.to_param, meal_plan: new_attributes}, session: valid_session
-        meal_plan.reload
+      it "updates the requested plan" do
+        plan = MealPlan.create! valid_attributes
+        put :update, params: {id: plan.to_param, plan: new_attributes}, session: valid_session
+        plan.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the meal_plan" do
-        meal_plan = MealPlan.create! valid_attributes
+      it "renders a JSON response with the plan" do
+        plan = MealPlan.create! valid_attributes
 
-        put :update, params: {id: meal_plan.to_param, meal_plan: valid_attributes}, session: valid_session
+        put :update, params: {id: plan.to_param, plan: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the meal_plan" do
-        meal_plan = MealPlan.create! valid_attributes
+      it "renders a JSON response with errors for the plan" do
+        plan = MealPlan.create! valid_attributes
 
-        put :update, params: {id: meal_plan.to_param, meal_plan: invalid_attributes}, session: valid_session
+        put :update, params: {id: plan.to_param, plan: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -118,10 +118,10 @@ RSpec.describe MealPlansController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested meal_plan" do
-      meal_plan = MealPlan.create! valid_attributes
+    it "destroys the requested plan" do
+      plan = MealPlan.create! valid_attributes
       expect {
-        delete :destroy, params: {id: meal_plan.to_param}, session: valid_session
+        delete :destroy, params: {id: plan.to_param}, session: valid_session
       }.to change(MealPlan, :count).by(-1)
     end
   end

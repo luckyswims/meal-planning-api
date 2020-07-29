@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :meals
-  resources :meal_plans, except: %i[new edit]
+  resources :plans, except: %i[new edit]
   # RESTful routes
   resources :examples, except: %i[new edit]
 
