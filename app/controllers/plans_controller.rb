@@ -47,6 +47,6 @@ class PlansController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def plan_params
-    params.require(:plan).permit(:name, :user_id, meals: [])
+    params.require(:plan).permit(:name, :user_id, meal_ids: [])
   end
 end
