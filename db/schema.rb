@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_171811) do
+ActiveRecord::Schema.define(version: 2020_07_30_185126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_07_29_171811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_examples_on_user_id"
+  end
+
+  create_table "meal_joins", force: :cascade do |t|
+    t.bigint "plan_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_joins_on_meal_id"
+    t.index ["plan_id"], name: "index_meal_joins_on_plan_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -35,13 +44,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_171811) do
 
   create_table "plans", force: :cascade do |t|
     t.string "name"
-    t.string "meal1"
-    t.string "meal2"
-    t.string "meal3"
-    t.string "meal4"
-    t.string "meal5"
-    t.string "meal6"
-    t.string "meal7"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_171811) do
   end
 
   add_foreign_key "examples", "users"
+  add_foreign_key "meal_joins", "meals"
+  add_foreign_key "meal_joins", "plans"
   add_foreign_key "meals", "users"
   add_foreign_key "plans", "users"
 end

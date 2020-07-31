@@ -1,4 +1,5 @@
 class PlanSerializer < ActiveModel::Serializer
-  attributes :id, :name, :meal1, :meal2, :meal3, :meal4, :meal5, :meal6, :meal7
+  attributes :id, :name, :meals
   has_one :user
+  has_many :meals, through: :meal_joins
 end
